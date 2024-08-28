@@ -1,10 +1,25 @@
 'use client';
 import Image from "next/image";
-import React from "react";
-import { welcome } from "./choices";
+import React, {useEffect, useState} from "react";
+import { useCsvData } from "./context/csvDataContext";
+import { useRouter } from 'next/navigation';
 
 export default function Main() {
-    const [currentChoice, setChoice] = React.useState(welcome);
+    const router = useRouter();
+    const { csvData } = useCsvData();
+
+    useEffect(() => {
+        if (!csvData?.length) {
+            router.replace('/setup');
+        }
+    });
+
+    if (!csvData?.length) {
+        return null;        
+    }
+
+    const start = csvData.find(x => x.title == 'start') || csvData[0];
+    const [currentChoice, setChoice] = useState(start);
 
     function handleClick(choice) {
         let newChoice = choice;
@@ -12,7 +27,7 @@ export default function Main() {
         if (choice.title == endNodeTitle) {
             // last node tapped
             newChoice = welcome;
-        } else if (!choice.choices) {
+        } else if (!choice.choices?.length) {
             // construct final screen
             const question = `You ask the bartender for a delicious ${newChoice.title}. They give you a knowing smile and get to work.`
             const subquestion = 'You have chosen wisely.';
@@ -33,7 +48,7 @@ export default function Main() {
                 </div>
             </div>
             <div className={`flex-grow place-items-center items-start content-center grid lg:max-w-5xl lg:w-full lg:mb-0 ${currentChoice.choices.length === 3 ?  'md:grid-cols-3' : 'md:grid-cols-1'} lg:text-left`}>
-                {currentChoice.choices.map((choice) => (
+                {currentChoice.choices?.map((choice) => (
                     <div
                         key={choice.title ?? choice.question}
                         className="flex flex-col group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 hover:cursor-pointer"

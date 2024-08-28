@@ -1,31 +1,37 @@
 'use client';
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { Screen } from '../choices';
 
-export const csvLocalStorageKey = 'ccc_csv';
+const csvLocalStorageKey = 'ccc_csv';
 const CsvDataContext = createContext();
+
+function convertChoices(choices, data) {
+    if (!choices?.length) {
+        return [];
+    }
+    return choices.map(item => {
+        if (typeof item == 'String') {
+            return Object.assign({}, data.find(x => x.title == item));
+        }
+        return item;
+    })
+}
 
 export function CsvDataProvider({ children }) {
 
-    const router = useRouter();
-
-    const [csvData, setCsvData] = useState(() => {
-        let savedState = [];
-        try {
-            const localStorageCsv = localStorage.getItem(csvLocalStorageKey);
-            savedState = JSON.parse(localStorageCsv).value
-
-        }
-        catch (e) {
-            // JSON save invalid, clear out
-            localStorage.setItem(csvLocalStorageKey, {});
-        }
-        return savedState;
-    });
+    const [csvData, setCsvData] = useState([]);
 
     useEffect(() => {
-        if (!csvData || !csvData.length) {
-            router.replace('/setup');
+        if (!csvData?.length) {
+            let localData = localStorage.getItem(csvLocalStorageKey);
+            if (localData) {
+                try {
+                    setCsvData(JSON.parse(localData).value);
+                } catch (e) {
+                    localStorage.setItem(csvLocalStorageKey, undefined);
+                }
+            }
+
         } else {
             localStorage.setItem(csvLocalStorageKey, JSON.stringify({ value: csvData }));
         }
