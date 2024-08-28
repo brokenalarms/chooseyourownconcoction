@@ -1,10 +1,12 @@
-'use client'; // Ensure this is a client component if using Next.js with the `app` directory
+'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { useCsvData } from '../context/csvDataContext';
 import Papa from 'papaparse';
 
 export default function CsvUpload() {
+
     const { csvData, setCsvData } = useCsvData();
 
     const handleFileUpload = (event) => {
@@ -12,7 +14,7 @@ export default function CsvUpload() {
 
         if (file) {
             Papa.parse(file, {
-                header: true, // If your CSV has headers
+                header: true,
                 skipEmptyLines: true,
                 complete: function (results) {
                     setCsvData(results.data);
@@ -32,6 +34,7 @@ export default function CsvUpload() {
                 accept=".csv"
                 onChange={handleFileUpload}
             />
+            <Link className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="/">Go to home</Link>
             {csvData && (
                 <div>
                     <h2>CSV Data</h2>
