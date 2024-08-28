@@ -1,3 +1,35 @@
+// 'use client';
+// import * as Papa from 'papaparse';
+
+// async function parseCSV(csvString) {
+//     // Define the path to the CSV file
+
+//     // Read the file contents
+//     const fileContents = (await fetch(csvString));
+//     const blob = await fileContents.blob()
+//     return new Promise((resolve, reject) => {
+//         Papa.parse(blob, {
+//             header: true, // Assuming your CSV has headers
+//             skipEmptyLines: true,
+
+//             complete: function (results) {
+//                 resolve(results.data);
+//             },
+//             error: function (error) {
+//                 reject(error);
+//             }
+//         });
+//     });
+// }
+
+// try {
+//     const data = await parseCSV('/input/input.csv');
+//     console.log(data);
+// } catch (error) {
+//     console.error('Error parsing CSV:', error);
+// }
+
+
 const Screen = (vars) => {
     return Object.assign({}, vars, { image: `/assets/${vars.image}` });
 }
@@ -25,7 +57,7 @@ const drinks = {
         // categories: [category.mocktail, category.mocktail.subcategories.spritOfTequila],
         title: 'Mexican Mule',
         description: 'tequila, lime, ginger, ginger beer, bitters',
-        // image: 'Moscow Mule.png',
+        image: 'Moscow Mule.png',
     },
     medicinaLatina: {
         // categories: [category.mocktail, category.mocktail.subcategories.spritOfTequila],
