@@ -5,6 +5,7 @@ import { useCsvData, csvLocalStorageKey } from "../context/csvDataContext";
 import { useRouter } from "next/navigation";
 import { getStartScreen } from "../components/Screen";
 import clsx from "clsx";
+import { Loading } from "../components/loading";
 
 export default function Main() {
   const router = useRouter();
@@ -13,7 +14,7 @@ export default function Main() {
 
   useEffect(() => {
     if (isInitialized) {
-      if (data) {
+      if (data?.length) {
         let startScreen = getStartScreen(data);
         setChoice(startScreen);
       } else {
@@ -23,7 +24,7 @@ export default function Main() {
   }, [isInitialized, data, router]);
 
   if (!currentChoice) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   const showSubquestion = currentChoice.subquestion;
