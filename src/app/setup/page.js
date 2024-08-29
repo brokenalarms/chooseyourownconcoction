@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { useCsvData } from '../context/csvDataContext';
+import { useCsvData } from '../../context/csvDataContext';
 import Papa from 'papaparse';
 
 export default function CsvUpload() {
@@ -14,11 +14,12 @@ export default function CsvUpload() {
 
         if (file) {
             Papa.parse(file, {
+                dynamicTyping: true,
                 header: true,
                 skipEmptyLines: true,
                 complete: function (results) {
                     setCsvData(results.data);
-                    
+
                 },
                 error: function (error) {
                     console.error("Error parsing CSV:", error.message);

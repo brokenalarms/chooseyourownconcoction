@@ -1,27 +1,27 @@
-variant,title,question,choices,description,image
-screen,start,You are standing at a bar. Which path shall you take?,"Mocktails, THC / CBD, Nootropics & Tinctures",,calicraftconcoctions.png
-screen,Mocktails,What type of 'spirit' do you prefer?,"Spirit of Gin, Spirit of Bourbon, Spirit of Tequila",,mocktails.png
-screen,Nootropics & Tinctures,What feeling are you searching for?,"Just chill, ENERGY, I want to live forever!",,NOOTROPICS _ TINCTURES.jpg
-screen,THC / CBD,"Would you prefer CBD only, or both CBD & THC?","CBD only, Both obvs",,thc_cbd.webp
-screen,CBD only,What type of 'spirit' do you prefer?,"Spirit of Gin, Spirit of Bourbon, Spirit of Tequila",,mocktails.png
-screen,Spirit of Gin,Which drink would you prefer?,"1934, Gordon's Cup, Bee's Knees",,The-Spirit-of-Gin_front.png
-screen,Spirit of Bourbon,Which drink would you prefer?,"Gold Rush, Kentucky Mule",,The-Spirit-of-Bourbon_front.png
-screen,Spirit of Tequila,Which drink would you prefer?,"Barefoot, Mexican Mule, Medicina Latina",,The-Spirit-of-Tequila_front.png
-screen,Both obvs,Which drink would you prefer?,"Grapefruit Rosemary TBD, Lemon Lavender TBD, Blood Orange Cardamom TBD",,NOOTROPICS _ TINCTURES.jpg
-screen,Just chill,Chill out with one of these:,"Cucumber TBD, Jalapeno TBD, Strawberry TBD",,
-screen,ENERGY,Choose your natural rager:,"Cucumber TBD, Jalapeno TBD, Strawberry TBD",,
-screen,I want to live forever!,Choose your immunity drink:,"Cucumber TBD, Jalapeno TBD, Strawberry TBD",,
-drink,Barefoot,,,"tequila, lime, pineapple, jalapeno",Barefoot.png
-drink,Mexican Mule,,,"tequila, lime, ginger, ginger beer, bitters",Moscow Mule.png
-drink,Medicina Latina,,,"tequila, lime, honey, ginger",Medicina Latina.png
-drink,Gold Rush,,,"bourbon, lemon, honey",Gold Rush.png
-drink,Kentucky Mule,,,"bourbon, lime, ginger, ginger beer, Angostura bitters",Moscow Mule.png
-drink,1934,,,"gin, lemon, raspberries, orange",1934.png
-drink,Gordon's Cup,,,"gin, lime, cucumber, black pepper, pink Himalayan salt",Gordon_s Cup.png
-drink,Bee's Knees,,,"gin, lemon, honey",Bee_s Knees.png
-drink,Grapefruit Rosemary TBD,,,TBD,
-drink,Blood Orange Cardamom TBD,,,TBD,
-drink,Lemon Lavender TBD,,,TBD,
-drink,Cucumber TBD,,,"lime, cucumber, pepper, salt, soda",
-drink,Jalapeno TBD,,,"lime, pineapple, jalapeno, soda",
-drink,Strawberry TBD,,,"lime, orange bitters, strawberries, basil, soda",
+variant,title,question,choices,description,image,useDrinkName
+screen,start,You are standing at a bar. Which path shall you take?,"Mocktails, THC / CBD, Nootropics & Tinctures",,calicraftconcoctions.png,
+screen,Mocktails,What type of 'spirit' do you prefer?,"Spirit of Gin, Spirit of Bourbon, Spirit of Tequila",,mocktails.png,
+screen,Nootropics & Tinctures,What feeling are you searching for?,"Just chill, ENERGY, I want to live forever!",,NOOTROPICS _ TINCTURES.jpg,
+screen,THC / CBD,"Would you prefer CBD only, or both CBD & THC?","CBD only, Both obvs",,thc_cbd.webp,
+screen,CBD only,What type of 'spirit' do you prefer?,"Spirit of Gin, Spirit of Bourbon, Spirit of Tequila",,mocktails.png,
+screen,Spirit of Gin,Which drink would you prefer?,"1934, Gordon's Cup, Bee's Knees",,The-Spirit-of-Gin_front.png,
+screen,Spirit of Bourbon,Which drink would you prefer?,"Gold Rush, Kentucky Mule",,The-Spirit-of-Bourbon_front.png,
+screen,Spirit of Tequila,Which drink would you prefer?,"Barefoot, Mexican Mule, Medicina Latina",,The-Spirit-of-Tequila_front.png,
+screen,Both obvs,Which drink would you prefer?,"Grapefruit Rosemary, Blood Orange Cardamom, Lemon Lavender",,NOOTROPICS _ TINCTURES.jpg,
+screen,Just chill,Chill out with one of these:,"Cucumber, Jalapeno, Strawberry",,,
+screen,ENERGY,Choose your natural rager:,"Cucumber, Jalapeno, Strawberry",,,
+screen,I want to live forever!,Choose your immunity drink:,"Cucumber, Jalapeno, Strawberry",,,
+drink,Barefoot,,,"tequila, lime, pineapple, jalapeno",Barefoot.png,
+drink,Mexican Mule,,,"tequila, lime, ginger, ginger beer, bitters",Moscow Mule.png,TRUE
+drink,Medicina Latina,,,"tequila, lime, honey, ginger",Medicina Latina.png,TRUE
+drink,Gold Rush,,,"bourbon, lemon, honey",Gold Rush.png,TRUE
+drink,Kentucky Mule,,,"bourbon, lime, ginger, ginger beer, Angostura bitters",Moscow Mule.png,TRUE
+drink,1934,,,"gin, lemon, raspberries, orange",1934.png,TRUE
+drink,Gordon's Cup,,,"gin, lime, cucumber, black pepper, pink Himalayan salt",Gordon_s Cup.png,TRUE
+drink,Bee's Knees,,,"gin, lemon, honey",Bee_s Knees.png,TRUE
+drink,Grapefruit Rosemary,,,,,FALSE
+drink,Blood Orange Cardamom,,,,,FALSE
+drink,Lemon Lavender,,,,,FALSE
+drink,Cucumber,,,"lime, cucumber, pepper, salt, soda",,FALSE
+drink,Jalapeno,,,"lime, pineapple, jalapeno, soda",,FALSE
+drink,Strawberry,,,"lime, orange bitters, strawberries, basil, soda",,FALSE

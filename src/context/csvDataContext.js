@@ -1,7 +1,6 @@
 'use client';
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { Screen, convertCsv } from '../Screen';
-import { parse } from 'path';
+import { Screen, convertCsv } from '../components/Screen';
 
 export const csvLocalStorageKey = 'ccc_csv';
 

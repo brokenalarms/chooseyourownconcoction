@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { CsvDataProvider } from './context/csvDataContext';
+import { CsvDataProvider } from '../context/csvDataContext';
 
 const inter = Inter({ subsets: ["latin"] });
 

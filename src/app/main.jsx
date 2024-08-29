@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { useCsvData, csvLocalStorageKey } from "./context/csvDataContext";
+import { useCsvData, csvLocalStorageKey } from "../context/csvDataContext";
 import { useRouter } from "next/navigation";
-import { getStartScreen } from "./Screen";
+import { getStartScreen } from "../components/Screen";
 import clsx from "clsx";
 
 export default function Main() {
@@ -14,7 +14,7 @@ export default function Main() {
   useEffect(() => {
     if (isInitialized) {
       if (data) {
-        const startScreen = getStartScreen(data);
+        let startScreen = getStartScreen(data);
         setChoice(startScreen);
       } else {
         router.replace("/setup");
@@ -30,10 +30,14 @@ export default function Main() {
   function handleClick(choice) {
     let newChoice = choice;
     if (choice.finalNode == true) {
-      newChoice = startScreen;
+      newChoice = getStartScreen(data);
     } else if (!choice.choices?.length) {
       // construct final screen
-      const question = `You ask the bartender for a delicious ${newChoice.title}. They give you a knowing smile and get to work.`;
+      const question = `You ask the bartender for ${
+        newChoice.useDrinkName
+          ? `a delicious ${newChoice.title}`
+          : `the delicious concoction below`
+      }. They give you a knowing smile and get to work.`;
       const subquestion = "You have chosen wisely.";
       newChoice = Object.assign({
         question,
@@ -46,13 +50,13 @@ export default function Main() {
     setChoice(newChoice);
   }
 
-  const gridClass = clsx({
+  const gridCols = clsx({
     "md:grid-cols-6": currentChoice.choices.length === 6,
     "md:grid-cols-5": currentChoice.choices.length === 5,
     "md:grid-cols-4": currentChoice.choices.length === 4,
     "md:grid-cols-3": currentChoice.choices.length === 3,
-    "md:grid-cols-2": currentChoice.choices.length === 2,
-    "md:grid-cols-1": currentChoice.choices.length === 1,
+    "md:grid-cols-2 max-w-[66.666%]": currentChoice.choices.length === 2,
+    "md:grid-cols-1 max-w-[33.333%]": currentChoice.choices.length === 1,
   });
 
   return (
@@ -68,12 +72,12 @@ export default function Main() {
         </div>
       </div>
       <div
-        className={`flex-grow place-items-center items-start content-center grid md:max-w-5xl md:w-full lg:mb-0 ${gridClass} lg:text-left`}
+        className={`gap-4 flex-grow place-items-center items-start content-center grid max-w-6xl md:w-full ${gridCols}`}
       >
         {currentChoice.choices?.map((choice) => (
           <div
             key={choice.title ?? choice.question}
-            className="flex flex-col group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 hover:cursor-pointer"
+            className="w-full text-center flex flex-col group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 hover:cursor-pointer"
             onClick={handleClick.bind(this, choice)}
           >
             <Image
@@ -103,7 +107,7 @@ export default function Main() {
           <a href="http://www.calicraftconcoctions.com" target="_blank">
             <Image
               className="m-auto"
-              src="/assets/calicraftconcoctions.png"
+              src="/assets/Cali_Craft_Concoctions_Inverted.png"
               width={150}
               height={150}
               priority
@@ -113,7 +117,7 @@ export default function Main() {
         <div className="flex-grow"></div>
         <button
           onClick={() => {
-            setChoice(startScreen);
+            setChoice(getStartScreen(data));
           }}
           className="mt-auto font-mono text-sm flex"
         >
