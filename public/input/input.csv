@@ -1,4 +1,4 @@
-type,title,question,choices,description,image_filename
+variant,title,question,choices,description,image
 screen,start,You are standing at a bar. Which path shall you take?,"Mocktails, THC / CBD, Nootropics & Tinctures",,calicraftconcoctions.png
 screen,Mocktails,What type of 'spirit' do you prefer?,"Spirit of Gin, Spirit of Bourbon, Spirit of Tequila",,mocktails.png
 screen,Nootropics & Tinctures,What feeling are you searching for?,"Just chill, ENERGY, I want to live forever!",,NOOTROPICS _ TINCTURES.jpg

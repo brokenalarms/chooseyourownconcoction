@@ -7,7 +7,7 @@ import Papa from 'papaparse';
 
 export default function CsvUpload() {
 
-    const { csvData, setCsvData } = useCsvData();
+    const { csvData, setCsvData, data } = useCsvData();
 
     const handleFileUpload = (event) => {
         const file = event.target.files[0];
@@ -18,6 +18,7 @@ export default function CsvUpload() {
                 skipEmptyLines: true,
                 complete: function (results) {
                     setCsvData(results.data);
+                    
                 },
                 error: function (error) {
                     console.error("Error parsing CSV:", error.message);
@@ -39,7 +40,11 @@ export default function CsvUpload() {
                 <div>
                     <h2>CSV Data</h2>
                     <pre>{JSON.stringify(csvData, null, 2)}</pre>
+                    <h2>Massaged Data</h2>
+                    <pre>{JSON.stringify(data, null, 2)}</pre>
                 </div>
+
+
             )}
         </div>
     );

@@ -1,44 +1,52 @@
 'use client';
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import { Screen } from '../choices';
+import { Screen, convertCsv } from '../Screen';
+import { parse } from 'path';
 
-const csvLocalStorageKey = 'ccc_csv';
+export const csvLocalStorageKey = 'ccc_csv';
+
 const CsvDataContext = createContext();
-
-function convertChoices(choices, data) {
-    if (!choices?.length) {
-        return [];
-    }
-    return choices.map(item => {
-        if (typeof item == 'String') {
-            return Object.assign({}, data.find(x => x.title == item));
-        }
-        return item;
-    })
-}
 
 export function CsvDataProvider({ children }) {
 
-    const [csvData, setCsvData] = useState([]);
+    const [csvData, setCsvData] = useState(null)
+    // csv with choices string array converted to objects
+    const [data, setData] = useState(null);
+    const [isInitialized, setIsInitialized] = useState(false);
 
     useEffect(() => {
-        if (!csvData?.length) {
-            let localData = localStorage.getItem(csvLocalStorageKey);
-            if (localData) {
-                try {
-                    setCsvData(JSON.parse(localData).value);
-                } catch (e) {
-                    localStorage.setItem(csvLocalStorageKey, undefined);
-                }
+        let localData = localStorage.getItem(csvLocalStorageKey);
+        if (localData) {
+            try {
+                const parsedData = JSON.parse(localData).value;
+                setCsvData(parsedData);
+            } catch (e) {
+                localStorage.removeItem(csvLocalStorageKey);
+                setCsvData([])
             }
-
         } else {
-            localStorage.setItem(csvLocalStorageKey, JSON.stringify({ value: csvData }));
+            setCsvData([])
         }
+    }, []);
+
+    useEffect(() => {
+        if (csvData?.length) {
+            localStorage.setItem(csvLocalStorageKey, JSON.stringify({ value: csvData }));
+            setData(convertCsv(csvData));
+        } else if (csvData) {
+            setData([])
+        }
+
     }, [csvData]);
 
+    useEffect(() => {
+        if (data) {
+            setIsInitialized(true);
+        }
+    }, [data]);
+
     return (
-        <CsvDataContext.Provider value={{ csvData, setCsvData }}>
+        <CsvDataContext.Provider value={{ setCsvData, csvData, data, isInitialized }}>
             {children}
         </CsvDataContext.Provider>
     );

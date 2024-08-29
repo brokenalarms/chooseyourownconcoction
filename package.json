@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "next": "14.2.6",
     "papaparse": "^5.4.1",
     "react": "^18",
