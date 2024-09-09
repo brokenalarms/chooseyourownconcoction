@@ -8,6 +8,12 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Choose Your Own Concoction",
   description: "Presented by Cali Craft Concoctions.",
+  icons: {
+    icon: [
+      { rel: 'icon', url: '/assets/Cali Craft Concoctions - Main Logo.png' }, // Default favicon
+      { rel: 'icon', url: '/assets/Cali Craft Concoctions - Main Logo_Inverted.png', media: '(prefers-color-scheme: dark)' } // Dark mode favicon
+    ],
+  },
 };
 
 export default function RootLayout({

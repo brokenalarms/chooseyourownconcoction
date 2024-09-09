@@ -5,7 +5,7 @@ class Screen {
   description?: string;
   image: string;
   choices?: Screen[];
-  useDrinkName: boolean;
+  addConcoctionText: boolean;
 
   constructor({
     variant,
@@ -14,7 +14,7 @@ class Screen {
     description,
     image,
     choices,
-    useDrinkName = true,
+    addConcoctionText = true,
   }: {
     variant: string;
     title: string;
@@ -22,7 +22,7 @@ class Screen {
     description?: string;
     image?: string;
     choices?: Screen[];
-    useDrinkName?: boolean;
+    addConcoctionText?: boolean;
   }) {
     const assetsDir = `/assets/`;
     this.variant = variant;
@@ -35,7 +35,7 @@ class Screen {
       this.image = "/missing";
     }
     this.choices = choices;
-    this.useDrinkName = useDrinkName;
+    this.addConcoctionText = addConcoctionText;
   }
 }
 

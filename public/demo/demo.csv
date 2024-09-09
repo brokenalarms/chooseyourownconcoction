@@ -1,5 +1,5 @@
-variant,title,question,choices,description,image,useDrinkName
-screen,start,You are standing at a bar. Which path shall you take?,"Mocktails, THC / CBD, Nootropics & Tinctures",,calicraftconcoctions.png,
+variant,title,question,choices,description,image,addConcoctionText
+screen,start,DIFFERENT DATA FOR DEMO,"Mocktails, THC / CBD, Nootropics & Tinctures",,Cali_Craft_Concoctions_Inverted.png,
 screen,Mocktails,What type of 'spirit' do you prefer?,"Spirit of Gin, Spirit of Bourbon, Spirit of Tequila",,mocktails.png,
 screen,Nootropics & Tinctures,What feeling are you searching for?,"Just chill, ENERGY, I want to live forever!",,NOOTROPICS _ TINCTURES.jpg,
 screen,THC / CBD,"Would you prefer CBD only, or both CBD & THC?","CBD only, Both obvs",,thc_cbd.webp,
@@ -8,10 +8,10 @@ screen,Spirit of Gin,Which drink would you prefer?,"1934, Gordon's Cup, Bee's Kn
 screen,Spirit of Bourbon,Which drink would you prefer?,"Gold Rush, Kentucky Mule",,The-Spirit-of-Bourbon_front.png,
 screen,Spirit of Tequila,Which drink would you prefer?,"Barefoot, Mexican Mule, Medicina Latina",,The-Spirit-of-Tequila_front.png,
 screen,Both obvs,Which drink would you prefer?,"Grapefruit Rosemary, Blood Orange Cardamom, Lemon Lavender",,NOOTROPICS _ TINCTURES.jpg,
-screen,Just chill,Chill out with one of these:,"Cucumber, Jalapeno, Strawberry",,,
-screen,ENERGY,Choose your natural rager:,"Cucumber, Jalapeno, Strawberry",,,
-screen,I want to live forever!,Choose your immunity drink:,"Cucumber, Jalapeno, Strawberry",,,
-drink,Barefoot,,,"tequila, lime, pineapple, jalapeno",Barefoot.png,
+screen,Just chill,Chill out with one of these:,"Cucumber, Jalapeño, Strawberry",,,
+screen,ENERGY,Choose your natural rager:,"Cucumber, Jalapeño, Strawberry",,,
+screen,I want to live forever!,Choose your immunity drink:,"Cucumber, Jalapeño, Strawberry",,,
+drink,Barefoot,,,"tequila, lime, pineapple, jalapeño",Barefoot.png,
 drink,Mexican Mule,,,"tequila, lime, ginger, ginger beer, bitters",Moscow Mule.png,TRUE
 drink,Medicina Latina,,,"tequila, lime, honey, ginger",Medicina Latina.png,TRUE
 drink,Gold Rush,,,"bourbon, lemon, honey",Gold Rush.png,TRUE
@@ -23,5 +23,5 @@ drink,Grapefruit Rosemary,,,,,FALSE
 drink,Blood Orange Cardamom,,,,,FALSE
 drink,Lemon Lavender,,,,,FALSE
 drink,Cucumber,,,"lime, cucumber, pepper, salt, soda",,FALSE
-drink,Jalapeno,,,"lime, pineapple, jalapeno, soda",,FALSE
+drink,Jalapeño,,,"lime, pineapple, jalapeño, soda",,FALSE
 drink,Strawberry,,,"lime, orange bitters, strawberries, basil, soda",,FALSE

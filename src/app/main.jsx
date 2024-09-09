@@ -34,10 +34,10 @@ export default function Main() {
       newChoice = getStartScreen(data);
     } else if (!choice.choices?.length) {
       // construct final screen
-      const question = `You ask the bartender for ${
-        newChoice.useDrinkName
-          ? `a delicious ${newChoice.title}`
-          : `the delicious concoction below`
+      const question = `You ask the bartender for a delicious ${
+        newChoice.title
+      }${
+        newChoice.addConcoctionText ? ` concoction` : ``
       }. They give you a knowing smile and get to work.`;
       const subquestion = "You have chosen wisely.";
       newChoice = Object.assign({
